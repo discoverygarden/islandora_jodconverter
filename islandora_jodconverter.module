@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Defines all the hooks this module implements.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function islandora_jodconverter_menu() {
+  return array(
+    'admin/islandora/jodcoverter' => array(
+      'title' => 'JODConverter',
+      'description' => 'Configure the JODConverter.',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('islandora_jodconverter_admin_settings_form'),
+      'access arguments' => array('administer site configuration'),
+      'file' => 'includes/admin.form.inc',
+      'type' => MENU_NORMAL_ITEM,
+    )
+  );
+}
+
+function islandora_jodconverter_convert($from, $to = NULL, $type = NULL) {
+  module_load_include('inc', 'islandora_jodconverter', 'includes/utilities');
+  $command = '';
+  
+  // @todo validate extension or type is using.
+  if(!$to && !$type)
+  {
+    drupal_set_message(t('Convert type undefined'), 'error');
+  }
+  elseif ($to) {
+    $command = "$from $to";
+  }
+  else{
+    $command = "-f $type $from ";
+  }
+  $output = islandora_jodconverter_exec_convert($command);
+  
+  // @todo validate if the command is execute sucuess
+}
