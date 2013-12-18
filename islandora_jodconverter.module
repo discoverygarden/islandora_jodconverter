@@ -25,7 +25,7 @@ function islandora_jodconverter_menu() {
 function islandora_jodconverter_convert($from, $to = NULL, $type = NULL) {
   module_load_include('inc', 'islandora_jodconverter', 'includes/utilities');
   $command = '';
-  
+  dsm('convert');
   // @todo validate extension or type is using.
   if(!$to && !$type)
   {
