@@ -84,7 +84,7 @@ function islandora_jodconverter_defualt_formats() {
     'from' => array(),
     'to' => array(),
   );
-  
+
   $all_formats['odp'] = array(
     'name' => 'OpenDocument Presentation',
     'from' => array(),
@@ -105,7 +105,7 @@ function islandora_jodconverter_defualt_formats() {
     'from' => array(),
     'to' => array(),
   );
-  
+
   $all_formats['odg'] = array(
     'name' => 'Microsoft PowerPoint',
     'from' => array(),
@@ -116,20 +116,20 @@ function islandora_jodconverter_defualt_formats() {
     'from' => array(),
     'to' => array(),
   );
-  
+
   $families = islandora_jodconverter_get_familis();
   foreach ($families as $family) {
     foreach ($family['from'] as $from) {
       if (isset($all_formats[$from])) {
-        $all_formats[$from]['to'] = array_merge($all_formats[$from]['to'],$family['to']);
+        $all_formats[$from]['to'] = array_merge($all_formats[$from]['to'], $family['to']);
       }
     }
   }
-  
+
   foreach ($families as $family) {
     foreach ($family['to'] as $to) {
       if (isset($all_formats[$to])) {
-        $all_formats[$to]['from'] = array_merge($all_formats[$to]['from'],$family['from']);
+        $all_formats[$to]['from'] = array_merge($all_formats[$to]['from'], $family['from']);
       }
     }
   }
@@ -145,15 +145,24 @@ function islandora_jodconverter_defualt_formats() {
  * @return array|boolean
  *   The format type infomation.
  */
-function islandora_jodconverter_get_format($ext){
+function islandora_jodconverter_get_format($ext) {
   $all_formats = islandora_jodconverter_defualt_formats();
-  if(!isset($all_formats[$ext])) {
-    watchdog('JODConverter', 'Undefined type %format', array('%format'=>$ext),WATCHDOG_ERROR);
+  if (!isset($all_formats[$ext])) {
+    watchdog('JODConverter', 'Undefined type %format', array('%format' => $ext), WATCHDOG_ERROR);
     return FALSE;
   }
   return $all_formats[$ext];
 }
 
+/**
+ * Get the Family information.
+ * 
+ * @param string $family
+ *   The family name.
+ * 
+ * @return array
+ *   The family infomation.
+ */
 function islandora_jodconverter_get_familis($family = NULL) {
   $families = array(
     'Text' => array(
@@ -174,7 +183,7 @@ function islandora_jodconverter_get_familis($family = NULL) {
         'doc',
         'txt',
         'html',
-        'wiki'
+        'wiki',
       ),
     ),
     'Spreadsheet' => array(
@@ -207,7 +216,7 @@ function islandora_jodconverter_get_familis($family = NULL) {
         'odp',
         'sxi',
         'ppt',
-        'html'
+        'html',
       ),
     ),
     'Drawing' => array(
@@ -245,15 +254,15 @@ function islandora_jodconverter_get_familis($family = NULL) {
  * @param string $command
  *   The commend after java -jar *.jar.
  * 
- * @return Array 
+ * @return array 
  *   the out put of commend line. Return NULL if secusses executed.
  */
 function islandora_jodconverter_exec_convert($command) {
   $conv_path = drupal_realpath(libraries_get_path('jodconverter-2.2.2') . '/lib/jodconverter-cli-2.2.2.jar');
   $output = array();
   $exe_jar = "java -jar";
-  $port =variable_get('islandora_jodconverter_openoffice_port', 8100) ;
-  if($port != 8100) {
+  $port = variable_get('islandora_jodconverter_openoffice_port', 8100);
+  if ($port != 8100) {
     $exe_jar .= "-p $port";
   }
   exec("$exe_jar $conv_path $command  2>&1", $output, $return_var);
