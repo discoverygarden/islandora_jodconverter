@@ -25,8 +25,8 @@ function islandora_jodconverter_menu() {
 function islandora_jodconverter_convert($from, $to = NULL, $type = NULL) {
   module_load_include('inc', 'islandora_jodconverter', 'includes/utilities');
   $command = '';
-  dsm('convert');
   // @todo validate extension or type is using.
+  dsm($from);
   if(!$to && !$type)
   {
     drupal_set_message(t('Convert type undefined'), 'error');
@@ -38,6 +38,6 @@ function islandora_jodconverter_convert($from, $to = NULL, $type = NULL) {
     $command = "-f $type $from ";
   }
   $output = islandora_jodconverter_exec_convert($command);
-  
+  return $output;
   // @todo validate if the command is execute sucuess
 }
