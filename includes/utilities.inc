@@ -142,11 +142,15 @@ function islandora_jodconverter_defualt_formats() {
  * @param string $ext
  *   The extension of a format type.
  * 
- * @return array
+ * @return array|boolean
  *   The format type infomation.
  */
 function islandora_jodconverter_get_format($ext){
   $all_formats = islandora_jodconverter_defualt_formats();
+  if(!isset($all_formats[$ext])) {
+    watchdog('JODConverter', 'Undefined type %format', array('%format'=>$ext),WATCHDOG_ERROR);
+    return FALSE;
+  }
   return $all_formats[$ext];
 }
 
@@ -247,6 +251,30 @@ function islandora_jodconverter_get_familis($family = NULL) {
 function islandora_jodconverter_exec_convert($command) {
   $conv_path = drupal_realpath(libraries_get_path('jodconverter-2.2.2') . '/lib/jodconverter-cli-2.2.2.jar');
   $output = array();
-  exec("java -jar $conv_path $command  2>&1", $output, $return_var);
+  $exe_jar = "java -jar";
+  $port =variable_get('islandora_jodconverter_openoffice_port', 8100) ;
+  if($port != 8100) {
+    $exe_jar .= "-p $port";
+  }
+  exec("$exe_jar $conv_path $command  2>&1", $output, $return_var);
   return $output;
+}
+
+/**
+ * To get the extension of a file.
+ * 
+ * @param string $filename
+ *   The file name
+ * 
+ * @return bool|string
+ *   return the extension or false if not exist
+ */
+function islandora_jodconverter_get_ext($filename) {
+  $pos = strrpos($filename, ".");
+  if ($pos === FALSE) {
+    return FALSE;
+  }
+  else {
+    return substr($filename, $pos + 1);
+  }
 }
