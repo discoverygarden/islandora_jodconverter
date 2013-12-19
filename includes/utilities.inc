@@ -4,6 +4,13 @@
  * @file
  * Utility functions.
  */
+
+/**
+ * To get all allowed format for JODConverter.
+ * 
+ * @return array
+ *   All allowed formats.
+ */
 function islandora_jodconverter_defualt_formats() {
   $all_formats = array();
   $all_formats['odt'] = array(
@@ -126,11 +133,18 @@ function islandora_jodconverter_defualt_formats() {
       }
     }
   }
-  
-  dsm($all_formats);
   return $all_formats;
 }
 
+/**
+ * To get a format information.
+ * 
+ * @param string $ext
+ *   The extension of a format type.
+ * 
+ * @return array
+ *   The format type infomation.
+ */
 function islandora_jodconverter_get_format($ext){
   $all_formats = islandora_jodconverter_defualt_formats();
   return $all_formats[$ext];
@@ -221,6 +235,15 @@ function islandora_jodconverter_get_familis($family = NULL) {
   }
 }
 
+/**
+ * Execute the convert command.
+ * 
+ * @param string $command
+ *   The commend after java -jar *.jar.
+ * 
+ * @return Array 
+ *   the out put of commend line. Return NULL if secusses executed.
+ */
 function islandora_jodconverter_exec_convert($command) {
   $conv_path = drupal_realpath(libraries_get_path('jodconverter-2.2.2') . '/lib/jodconverter-cli-2.2.2.jar');
   $output = array();
