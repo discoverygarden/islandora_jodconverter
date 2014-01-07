@@ -11,7 +11,7 @@
  * @return array
  *   All allowed formats.
  */
-function islandora_jodconverter_defualt_formats() {
+function islandora_jodconverter_default_formats() {
   $all_formats = array();
   $all_formats['odt'] = array(
     'name' => 'OpenDocument Text',
@@ -117,7 +117,7 @@ function islandora_jodconverter_defualt_formats() {
     'to' => array(),
   );
 
-  $families = islandora_jodconverter_get_familis();
+  $families = islandora_jodconverter_get_families();
   foreach ($families as $family) {
     foreach ($family['from'] as $from) {
       if (isset($all_formats[$from])) {
@@ -142,11 +142,11 @@ function islandora_jodconverter_defualt_formats() {
  * @param string $ext
  *   The extension of a format type.
  * 
- * @return array|boolean
- *   The format type infomation.
+ * @return array|bool
+ *   The format type information.
  */
 function islandora_jodconverter_get_format($ext) {
-  $all_formats = islandora_jodconverter_defualt_formats();
+  $all_formats = islandora_jodconverter_default_formats();
   if (!isset($all_formats[$ext])) {
     watchdog('JODConverter', 'Undefined type %format', array('%format' => $ext), WATCHDOG_ERROR);
     return FALSE;
@@ -161,9 +161,9 @@ function islandora_jodconverter_get_format($ext) {
  *   The family name.
  * 
  * @return array
- *   The family infomation.
+ *   The family information.
  */
-function islandora_jodconverter_get_familis($family = NULL) {
+function islandora_jodconverter_get_families($family = NULL) {
   $families = array(
     'Text' => array(
       'from' => array(
