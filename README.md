@@ -59,6 +59,7 @@ sudo apt-get install openoffice.org-impress
 ```
 
 Start OpenOffice service:
+
 Make sure you start OpenOffice as the same user that apache is running as.
 ```sh
 soffice --headless --accept=socket,host=127.0.0.1,port=8100;urp;
