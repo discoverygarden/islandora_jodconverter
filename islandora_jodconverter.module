@@ -10,7 +10,7 @@
  */
 function islandora_jodconverter_menu() {
   return array(
-    'admin/islandora/jodcoverter' => array(
+    'admin/islandora/tools/jodcoverter' => array(
       'title' => 'JODConverter',
       'description' => 'Configure the JODConverter.',
       'page callback' => 'drupal_get_form',
@@ -24,14 +24,14 @@ function islandora_jodconverter_menu() {
 
 /**
  * Convert a document and get the output message.
- * 
+ *
  * @param string $from
  *   Convert from path.
  * @param string $to
  *   Convert to path.
  * @param string $type
  *   convert to type.
- * 
+ *
  * @return bool
  *   TRUE if successful, FALSE otherwise.
  */
