@@ -7,7 +7,7 @@
 
 /**
  * To get all allowed format for JODConverter.
- * 
+ *
  * @return array
  *   All allowed formats.
  */
@@ -29,6 +29,11 @@ function islandora_jodconverter_default_formats() {
     'to' => array(),
   );
   $all_formats['doc'] = array(
+    'name' => 'Rich Text Format',
+    'from' => array(),
+    'to' => array(),
+  );
+  $all_formats['docx'] = array(
     'name' => 'Rich Text Format',
     'from' => array(),
     'to' => array(),
@@ -138,10 +143,10 @@ function islandora_jodconverter_default_formats() {
 
 /**
  * To get a format information.
- * 
+ *
  * @param string $ext
  *   The extension of a format type.
- * 
+ *
  * @return array|bool
  *   The format type information.
  */
@@ -156,10 +161,10 @@ function islandora_jodconverter_get_format($ext) {
 
 /**
  * Get the Family information.
- * 
+ *
  * @param string $family
  *   The family name.
- * 
+ *
  * @return array
  *   The family information.
  */
@@ -171,6 +176,7 @@ function islandora_jodconverter_get_families($family = NULL) {
         'sxw',
         'rtf',
         'doc',
+        'docx',
         'wpd',
         'txt',
         'html',
@@ -181,6 +187,7 @@ function islandora_jodconverter_get_families($family = NULL) {
         'sxw',
         'rtf',
         'doc',
+        'docx',
         'txt',
         'html',
         'wiki',
@@ -250,11 +257,11 @@ function islandora_jodconverter_get_families($family = NULL) {
 
 /**
  * Execute the convert command.
- * 
+ *
  * @param string $command
  *   The commend after java -jar *.jar.
- * 
- * @return array 
+ *
+ * @return array
  *   the out put of commend line. Return NULL if secusses executed.
  */
 function islandora_jodconverter_exec_convert($command) {
@@ -271,10 +278,10 @@ function islandora_jodconverter_exec_convert($command) {
 
 /**
  * To get the extension of a file.
- * 
+ *
  * @param string $filename
  *   The file name
- * 
+ *
  * @return bool|string
  *   return the extension or false if not exist
  */
