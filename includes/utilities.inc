@@ -79,6 +79,11 @@ function islandora_jodconverter_default_formats() {
     'from' => array(),
     'to' => array(),
   );
+  $all_formats['xlsx'] = array(
+    'name' => 'Microsoft Excel',
+    'from' => array(),
+    'to' => array(),
+  );
   $all_formats['csv'] = array(
     'name' => 'Comma-Separated Values',
     'from' => array(),
@@ -101,6 +106,11 @@ function islandora_jodconverter_default_formats() {
     'to' => array(),
   );
   $all_formats['ppt'] = array(
+    'name' => 'Microsoft PowerPoint',
+    'from' => array(),
+    'to' => array(),
+  );
+  $all_formats['pptx'] = array(
     'name' => 'Microsoft PowerPoint',
     'from' => array(),
     'to' => array(),
@@ -198,6 +208,7 @@ function islandora_jodconverter_get_families($family = NULL) {
         'ods',
         'sxc',
         'xls',
+        'xlsx',
         'csv',
         'tsv',
       ),
@@ -206,6 +217,7 @@ function islandora_jodconverter_get_families($family = NULL) {
         'ods',
         'sxc',
         'xls',
+        'xlsx',
         'csv',
         'tsv',
         'html',
@@ -216,6 +228,7 @@ function islandora_jodconverter_get_families($family = NULL) {
         'odp',
         'sxi',
         'ppt',
+        'pptx',
       ),
       'to' => array(
         'pdf',
@@ -223,6 +236,7 @@ function islandora_jodconverter_get_families($family = NULL) {
         'odp',
         'sxi',
         'ppt',
+        'pptx',
         'html',
       ),
     ),
