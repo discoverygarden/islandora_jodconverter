@@ -6,23 +6,6 @@
  */
 
 /**
- * Implements hook_menu().
- */
-function islandora_jodconverter_menu() {
-  return array(
-    'admin/islandora/tools/jodcoverter' => array(
-      'title' => 'JODConverter',
-      'description' => 'Configure the JODConverter.',
-      'page callback' => 'drupal_get_form',
-      'page arguments' => array('islandora_jodconverter_admin_settings_form'),
-      'access arguments' => array('administer site configuration'),
-      'file' => 'includes/admin.form.inc',
-      'type' => MENU_NORMAL_ITEM,
-    ),
-  );
-}
-
-/**
  * Convert a document and get the output message.
  *
  * @param string $from

@@ -1,0 +1,7 @@
+islandora_jodconverter.admin:
+  path: '/admin/config/islandora/tools/jodconverter'
+  defaults:
+    _title: 'JODConverter'
+    _form: '\Drupal\islandora_jodconverter\Form\Admin'
+  requirements:
+    _permission: 'administer site configuration'

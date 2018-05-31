@@ -11,13 +11,13 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 
-class IslandoraJodconverterAdminSettingsForm extends FormBase {
+class Admin extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'islandora_jodconverter_admin_settings_form';
+    return 'islandora_jodconverter_admin';
   }
 
   public function buildForm(array $form, \Drupal\Core\Form\FormStateInterface $form_state) {
@@ -47,7 +47,7 @@ class IslandoraJodconverterAdminSettingsForm extends FormBase {
   }
 
   public function submitForm(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-    $port = !$form_state->getValue(['islandora_jodconverter_openoffice_port']) ? $form_state->getValue(['islandora_jodconverter_openoffice_port']) : 8100;
+    $port = (NULL !== $form_state->getValue('islandora_jodconverter_openoffice_port')) ? $form_state->getValue('islandora_jodconverter_openoffice_port') : 8100;
     $port = intval($port);
     \Drupal::configFactory()->getEditable('islandora_jodconverter.settings')->set('islandora_jodconverter_openoffice_port', $port)->save();
   }
