@@ -12,125 +12,122 @@
  *   All allowed formats.
  */
 function islandora_jodconverter_default_formats() {
-  $all_formats = array();
-  $all_formats['odt'] = array(
+  $all_formats = [];
+  $all_formats['odt'] = [
     'name' => 'OpenDocument Text',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['sxw'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['sxw'] = [
     'name' => 'OpenOffice.org 1.0 Text',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['rtf'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['rtf'] = [
     'name' => 'OpenDocument',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['doc'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['doc'] = [
     'name' => 'Rich Text Format',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['docx'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['docx'] = [
     'name' => 'Rich Text Format',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['wpd'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['wpd'] = [
     'name' => 'WordPerfect',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['txt'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['txt'] = [
     'name' => 'Plain Text',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['html'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['html'] = [
     'name' => 'HTML',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['pdf'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['pdf'] = [
     'name' => 'Portable Document',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['wiki'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['wiki'] = [
     'name' => 'MediaWiki wikitext',
-    'from' => array(),
-    'to' => array(),
-  );
-
-  $all_formats['ods'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['ods'] = [
     'name' => 'OpenDocument Spreadsheet',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['sxc'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['sxc'] = [
     'name' => 'OpenOffice.org 1.0 Spreadsheet',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['xls'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['xls'] = [
     'name' => 'Microsoft Excel',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['xlsx'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['xlsx'] = [
     'name' => 'Microsoft Excel',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['csv'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['csv'] = [
     'name' => 'Comma-Separated Values',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['tsv'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['tsv'] = [
     'name' => 'Tab-Separated Values',
-    'from' => array(),
-    'to' => array(),
-  );
-
-  $all_formats['odp'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['odp'] = [
     'name' => 'OpenDocument Presentation',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['sxi'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['sxi'] = [
     'name' => 'OpenOffice.org 1.0 Presentation',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['ppt'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['ppt'] = [
     'name' => 'Microsoft PowerPoint',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['pptx'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['pptx'] = [
     'name' => 'Microsoft PowerPoint',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['swf'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['swf'] = [
     'name' => 'Macromedia Flash',
-    'from' => array(),
-    'to' => array(),
-  );
-
-  $all_formats['odg'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['odg'] = [
     'name' => 'Microsoft PowerPoint',
-    'from' => array(),
-    'to' => array(),
-  );
-  $all_formats['svg'] = array(
+    'from' => [],
+    'to' => [],
+  ];
+  $all_formats['svg'] = [
     'name' => 'Macromedia Flash',
-    'from' => array(),
-    'to' => array(),
-  );
+    'from' => [],
+    'to' => [],
+  ];
 
   $families = islandora_jodconverter_get_families();
   foreach ($families as $family) {
@@ -163,7 +160,7 @@ function islandora_jodconverter_default_formats() {
 function islandora_jodconverter_get_format($ext) {
   $all_formats = islandora_jodconverter_default_formats();
   if (!isset($all_formats[$ext])) {
-    \Drupal::logger('JODConverter')->error('Undefined type %format', array('%format' => $ext));
+    \Drupal::logger('JODConverter')->error('Undefined type %format', ['%format' => $ext]);
     return FALSE;
   }
   return $all_formats[$ext];
@@ -179,9 +176,9 @@ function islandora_jodconverter_get_format($ext) {
  *   The family information.
  */
 function islandora_jodconverter_get_families($family = NULL) {
-  $families = array(
-    'Text' => array(
-      'from' => array(
+  $families = [
+    'Text' => [
+      'from' => [
         'odt',
         'sxw',
         'rtf',
@@ -190,8 +187,8 @@ function islandora_jodconverter_get_families($family = NULL) {
         'wpd',
         'txt',
         'html',
-      ),
-      'to' => array(
+      ],
+      'to' => [
         'pdf',
         'odt',
         'sxw',
@@ -201,18 +198,18 @@ function islandora_jodconverter_get_families($family = NULL) {
         'txt',
         'html',
         'wiki',
-      ),
-    ),
-    'Spreadsheet' => array(
-      'from' => array(
+      ],
+    ],
+    'Spreadsheet' => [
+      'from' => [
         'ods',
         'sxc',
         'xls',
         'xlsx',
         'csv',
         'tsv',
-      ),
-      'to' => array(
+      ],
+      'to' => [
         'pdf',
         'ods',
         'sxc',
@@ -221,16 +218,16 @@ function islandora_jodconverter_get_families($family = NULL) {
         'csv',
         'tsv',
         'html',
-      ),
-    ),
-    'Presentation' => array(
-      'from' => array(
+      ],
+    ],
+    'Presentation' => [
+      'from' => [
         'odp',
         'sxi',
         'ppt',
         'pptx',
-      ),
-      'to' => array(
+      ],
+      'to' => [
         'pdf',
         'swf',
         'odp',
@@ -238,22 +235,22 @@ function islandora_jodconverter_get_families($family = NULL) {
         'ppt',
         'pptx',
         'html',
-      ),
-    ),
-    'Drawing' => array(
-      'from' => array(
+      ],
+    ],
+    'Drawing' => [
+      'from' => [
         'odg',
-      ),
-      'to' => array(
+      ],
+      'to' => [
         'svg',
         'swf',
-      ),
-    ),
-  );
+      ],
+    ],
+  ];
 
-  $return_array = array();
+  $return_array = [];
   if ($family && !is_array($family)) {
-    $family = array($family);
+    $family = [$family];
   }
 
   if ($family) {
@@ -276,11 +273,11 @@ function islandora_jodconverter_get_families($family = NULL) {
  *   The commend after java -jar *.jar.
  *
  * @return array
- *   the out put of commend line. Return NULL if secusses executed.
+ *   The out put of commend line. Return NULL if secusses executed.
  */
 function islandora_jodconverter_exec_convert($command) {
   $conv_path = \Drupal::service("file_system")->realpath(libraries_get_path('jodconverter-2.2.2') . '/lib/jodconverter-cli-2.2.2.jar');
-  $output = array();
+  $output = [];
   $exe_jar = "java -jar";
   $port = \Drupal::config('islandora_jodconverter.settings')->get('islandora_jodconverter_openoffice_port');
   if ($port != 8100) {
@@ -294,10 +291,10 @@ function islandora_jodconverter_exec_convert($command) {
  * To get the extension of a file.
  *
  * @param string $filename
- *   The file name
+ *   The file name.
  *
  * @return bool|string
- *   return the extension or false if not exist
+ *   Return the extension or false if not exist.
  */
 function islandora_jodconverter_get_ext($filename) {
   $pos = strrpos($filename, ".");

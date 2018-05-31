@@ -1,6 +1,7 @@
 SUMMARY
 -------
-Utilizes OpenOffice / JODCoverter as a service to convert documents between various formats.
+Utilizes OpenOffice / JODCoverter as a service to convert documents between
+various formats.
 
 ### Supported formats
 
@@ -58,7 +59,8 @@ soffice --headless --accept=socket,host=127.0.0.1,port=8100;urp;
 ```
 or
 ```sh
-soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard
+soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;"
+-nofirststartwizard
 ```
 If you are using an older version
 

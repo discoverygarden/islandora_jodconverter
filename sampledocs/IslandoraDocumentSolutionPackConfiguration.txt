@@ -47,7 +47,10 @@ name
 	
 
 2 Introduction
-         Islandora document solution pack provide a collection and a content model for users documents. Documents are converted to a pdf format in case to display. This solution pack need OpenOffice running as a service and also the JODCoverter library installed.
+         Islandora document solution pack provide a collection and a content
+         model for users documents. Documents are converted to a pdf format in
+         case to display. This solution pack need OpenOffice running as a
+         service and also the JODCoverter library installed.
 
 
 2.1 Supported formats
@@ -78,7 +81,11 @@ name
    * OpenOffice.org 1.0 Presentation (*.sxi)
    * Microsoft PowerPoint (*.ppt)
 2.2 Upload 
-Whenever a user upload a document. An Object will be created. The origin document will be ingested as the OBJ datastream. If openoffice service is running currectly and the jodcoverter is installed, a pdf file will be generated and saved as a PDF file. The TN and PREVIEW datastreams are produced from the PDF file. 
+Whenever a user upload a document. An Object will be created. The origin
+document will be ingested as the OBJ datastream. If openoffice service is
+running currectly and the jodcoverter is installed, a pdf file will be generated
+and saved as a PDF file. The TN and PREVIEW datastreams are produced from the
+PDF file. 
 3 Installation and Configuration
 3.1 OpenOffice
 Under Ubuntu 13.04
@@ -90,27 +97,36 @@ sudo apt-get update
 sudo apt-get install openoffice
 3. install OpenOffice writer extension
 sudo apt-get install openoffice.org-writer
-This extension is to convert a document to pdf format. It is need by islandora doument soution pack. An error message of soffice may output if  OpenOffice writer extension is not correct installded
+This extension is to convert a document to pdf format. It is need by islandora
+doument soution pack. An error message of soffice may output if OpenOffice
+writer extension is not correct installded
    1. install OpenOffice draw extension (Opetional)
          sudo apt-get install openoffice.org-draw
-        This extension is not need by islandora document solution pack. JODCoverter can convert drawing formats. It may be need for other islandora module development.
+        This extension is not need by islandora document solution pack.
+        JODCoverter can convert drawing formats. It may be need for other
+        islandora module development.
    1. Start OpenOffice service
-        soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard
+        soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;"
+        -nofirststartwizard
 
 
 3.2 JODConverter and Document Solution Pack
    1. JODConverter library
         Download the JODConverter from
-http://sourceforge.net/projects/jodconverter/files/JODConverter/2.2.2/jodconverter-2.2.2.zip/download 
+http://sourceforge.net/projects/jodconverter/files/JODConverter/2.2.2/jodconvert
+ er-2.2.2.zip/download 
 Unzip it and place into Drupal/base/path/sites/all/libraries
    1. Islandora_jodconverter module
-        get islandora_jodcoverter form https://github.com/yqjiang/islandora_jodconverter and place it into drupal/base/path/sites/all/modules/
+        get islandora_jodcoverter form https://github.com/yqjiang/islandora_jodc
+         onverter and place it into drupal/base/path/sites/all/modules/
         cd /var/www/drupal7/sites/all/modules/
         git clone https://github.com/yqjiang/islandora_jodconverter.git
    1. Islandora_solution_pack_document
-        get islandora_solution_pack_document from https://github.com/yqjiang/islandora_solution_pack_document and place it into into drupal/base/path/sites/all/modules/
-        cd /var/www/drupal7/sites/all/modules/
-        git clone https://github.com/yqjiang/islandora_solution_pack_document.git
+       get islandora_solution_pack_document from https://github.com/yqjiang/isl
+         andora_solution_pack_document and place it into into drupal/base/path/s
+         ites/all/modules/
+       cd /var/www/drupal7/sites/all/modules/
+       git clone https://github.com/yqjiang/islandora_solution_pack_document.git
 4 Trouble Shoting
 5 Furture Development (For developer)
 5.1 JODConverter
@@ -122,18 +138,25 @@ Unzip it and place into Drupal/base/path/sites/all/libraries
    * jodconverter test files.
    * Allow openoffice port other than 8100.
    * need to build test document for jodcoverter.
-   * Test if MicroSoft Office 2007 and later formmats can be converted. Edit the format list in the module. and update the document.
+   * Test if MicroSoft Office 2007 and later formmats can be converted. Edit the
+     format list in the module. and update the document.
 5.2 Islandora doument solution pack
    * edit content model to support all jodconverter format.
    * edit PDF datastream , if a pdf file is added do not use jodconverter.
    * get jod converter error and set message.
    * if a txt file is upload use it as FULL_TXT
-   * Add allowed formats in admin panel for user to choose which datasteam should be build when ingested (eg. when upload a doc, may build PDF, RTF ODT datastreams.)
-   * Add Data stream download link in theme allow users to down load other data format.
+   * Add allowed formats in admin panel for user to choose which datasteam
+     should be build when ingested (eg. when upload a doc, may build PDF, RTF
+     ODT datastreams.)
+   * Add Data stream download link in theme allow users to down load other data
+     format.
    * test file.
 5.3 Other
    * Maybe double check this document to figure out language issue.  o (>_<) o
-   * Configure OpenOffice under other operation system and update installation and configuration part https://docs.google.com/a/discoverygarden.ca/document/d/1zwLrMndzElZekLBQfpX83XsxDMQlRjQ8GOq5hsMQ5Qk/edit#heading=h.bwppgyp3hg0h
+   * Configure OpenOffice under other operation system and update installation
+     and configuration part https://docs.google.com/a/discoverygarden.ca/documen
+     t/d/1zwLrMndzElZekLBQfpX83XsxDMQlRjQ8GOq5hsMQ5Qk/edit#heading=h.bwppgyp3hg0
+     h
    * Add issues that may happens under trouble shoting.
 ________________
 6 Revision history
