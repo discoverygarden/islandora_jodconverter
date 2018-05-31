@@ -41,7 +41,7 @@ function islandora_jodconverter_convert($from, $to = NULL, $type = NULL) {
   // @todo validate extension or type is using.
   $ext = islandora_jodconverter_get_ext($from);
   if (!$ext) {
-    watchdog('JODConverter', 'The original do not have an extension', array(), WATCHDOG_ERROR);
+    \Drupal::logger('JODConverter')->error('The original do not have an extension', array());
     drupal_set_message(t('The original do not have an extension'), 'error');
     return FALSE;
   }
@@ -51,14 +51,14 @@ function islandora_jodconverter_convert($from, $to = NULL, $type = NULL) {
     // Get the to extensions.
     $to_ext = isset($to) ? islandora_jodconverter_get_ext($to) : strtolower($type);
     if (!is_array($to_format) || !in_array($to_ext, $to_format['to'])) {
-      watchdog('JODConverter', 'Can not convert %src files to %dest format', array('%src' => $ext, '%dest' => $to_ext), WATCHDOG_ERROR);
+      \Drupal::logger('JODConverter')->error('Can not convert %src files to %dest format', array('%src' => $ext, '%dest' => $to_ext));
       drupal_set_message(t('Can not convert %src files to %dest format', array('%src' => $ext, '%dest' => $to_ext)), 'error');
       return FALSE;
     }
   }
 
   if (!$to && !$type) {
-    watchdog('JODConverter', 'Convert type undefined', array(), WATCHDOG_ERROR);
+    \Drupal::logger('JODConverter')->error('Convert type undefined', array());
     drupal_set_message(t('Convert type undefined'), 'error');
     return FALSE;
   }
@@ -67,7 +67,7 @@ function islandora_jodconverter_convert($from, $to = NULL, $type = NULL) {
   $success = count($message) == 4 && $message[1] == 'INFO: connected' && $message[3] == 'INFO: disconnected';
   if (!$success) {
     $output = implode("\n", $message);
-    watchdog('JODConverter', "Convert Fail of %from.\nWith message: \n %message", array('%from' => $from, '%message' => $output), WATCHDOG_ERROR);
+    \Drupal::logger('JODConverter')->error("Convert Fail of %from.\nWith message: \n %message", array('%from' => $from, '%message' => $output));
     drupal_set_message(t("Convert Fail of %from.\nWith message: \n %message", array('%from' => $from, '%message' => $output)), 'error');
     return FALSE;
   }

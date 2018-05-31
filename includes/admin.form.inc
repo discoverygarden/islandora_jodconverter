@@ -14,10 +14,14 @@
 function islandora_jodconverter_admin_settings_form() {
   $form = array();
 
-  $form['islandora_jodconverter_openoffice_port'] = array(
+  // @FIXME
+// Could not extract the default value because it is either indeterminate, or
+// not scalar. You'll need to provide a default value in
+// config/install/islandora_jodconverter.settings.yml and config/schema/islandora_jodconverter.schema.yml.
+$form['islandora_jodconverter_openoffice_port'] = array(
     '#type' => 'textfield',
     '#title' => t('Openoffice Port'),
-    '#default_value' => variable_get('islandora_jodconverter_openoffice_port'),
+    '#default_value' => \Drupal::config('islandora_jodconverter.settings')->get('islandora_jodconverter_openoffice_port'),
     '#size' => 150,
     '#required' => TRUE,
   );
@@ -52,5 +56,5 @@ function islandora_jodconverter_admin_settings_form_validate($form, &$form_state
 function islandora_jodconverter_admin_settings_form_submit($form, &$form_state) {
   $port = isset($form_state['values']['islandora_jodconverter_openoffice_port']) ? $form_state['values']['islandora_jodconverter_openoffice_port'] : 8100;
   $port = intval($port);
-  variable_set('islandora_jodconverter_openoffice_port', $port);
+  \Drupal::configFactory()->getEditable('islandora_jodconverter.settings')->set('islandora_jodconverter_openoffice_port', $port)->save();
 }

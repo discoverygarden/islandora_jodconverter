@@ -163,7 +163,7 @@ function islandora_jodconverter_default_formats() {
 function islandora_jodconverter_get_format($ext) {
   $all_formats = islandora_jodconverter_default_formats();
   if (!isset($all_formats[$ext])) {
-    watchdog('JODConverter', 'Undefined type %format', array('%format' => $ext), WATCHDOG_ERROR);
+    \Drupal::logger('JODConverter')->error('Undefined type %format', array('%format' => $ext));
     return FALSE;
   }
   return $all_formats[$ext];
@@ -279,10 +279,10 @@ function islandora_jodconverter_get_families($family = NULL) {
  *   the out put of commend line. Return NULL if secusses executed.
  */
 function islandora_jodconverter_exec_convert($command) {
-  $conv_path = drupal_realpath(libraries_get_path('jodconverter-2.2.2') . '/lib/jodconverter-cli-2.2.2.jar');
+  $conv_path = \Drupal::service("file_system")->realpath(libraries_get_path('jodconverter-2.2.2') . '/lib/jodconverter-cli-2.2.2.jar');
   $output = array();
   $exe_jar = "java -jar";
-  $port = variable_get('islandora_jodconverter_openoffice_port', 8100);
+  $port = \Drupal::config('islandora_jodconverter.settings')->get('islandora_jodconverter_openoffice_port');
   if ($port != 8100) {
     $exe_jar .= "-p $port";
   }
