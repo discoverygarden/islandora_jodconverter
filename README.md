@@ -68,7 +68,8 @@ soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;"
 
 ### JODConverter
 
-Download from [here](http://sourceforge.net/projects/jodconverter/files/JODConverter/2.2.2/jodconverter-2.2.2.zip/download)
+Download from
+[here](http://sourceforge.net/projects/jodconverter/files/JODConverter/2.2.2/jodconverter-2.2.2.zip/download)
 Unzip it and place into Drupal/base/path/sites/all/libraries
 
 ## Configuration
