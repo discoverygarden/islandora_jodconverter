@@ -14,7 +14,7 @@ class Admin extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'islandora_jodconverter_admin';
+    return 'islandora_jodconverter_admin_settings_form';
   }
 
   /**
