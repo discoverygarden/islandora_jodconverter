@@ -1,0 +1,6 @@
+islandora_jodconverter.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    islandora_jodconverter_openoffice_port:
+      type: integer

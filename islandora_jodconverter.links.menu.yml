@@ -1,0 +1,5 @@
+islandora_jodconverter.admin:
+  route_name: islandora_jodconverter.admin
+  parent: islandora.tools_admin
+  title: 'JODConverter'
+  description: 'Configure the JODConverter.'

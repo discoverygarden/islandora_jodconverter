@@ -1,0 +1,8 @@
+name: 'Islandora JODConverter'
+description: 'Connector to JODCoverter services.'
+package: 'Islandora Tools'
+dependencies:
+  - :libraries
+core: 8.x
+type: module
+php: '5.5.9'
